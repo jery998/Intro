@@ -8,4 +8,14 @@ table {
     text-align: left;
   }
 
- 
+  tr:nth-child(even) {background-color: #f4f4f4;}
+
+  tr:hover {background-color: coral;}
+
+  .Statham{
+    display: flex;
+  }
+  
+.stathamPhoto{
+    
+}
