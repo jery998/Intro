@@ -1,0 +1,47 @@
+
+<html>
+  <head>
+    <title>Contact Form</title>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      label {
+        font-weight: bold;
+      }
+      input, textarea {
+        width: 300px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="contact-form" action="https://script.google.com/macros/s/AKfycbxZa7VuHX-M1E3q3r0yK7T_T2QMrOSV7PuewWpHV7KztcX1m_E/exec" method="post" enctype="text/plain">
+      <label for="name">Name:</label><br/>
+      <input type="text" name="name" id="name"/><br/>
+      <label for="email">Email:</label><br/>
+      <input type="email" name="email" id="email"/><br/>
+      <label for="message">Message:</label><br/>
+      <textarea name="message" id="message" rows="5"></textarea><br/>
+      <input type="hidden" name="recipient" value="allanalton47@gmail.com">
+      <input type="submit" value="Send" />
+    </form>
+    <script>
+      function sendForm() {
+        const form = document.querySelector('#contact-form');
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const name = document.querySelector('#name').value;
+          const email = document.querySelector('#email').value;
+          const message = document.querySelector('#message').value;
+          const body = `Name: ${name}\nEmail: ${email}\nMessage: ${message}`;
+          form.elements.namedItem("body").value = body;
+          form.submit();
+        });
+      }
+      sendForm();
+    </script>
+  </body>
+</html>
